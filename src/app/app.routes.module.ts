@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Routes } from '@angular/router';
+import { ProductListComponent } from './component/product-list/product-list.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  {path: 'products', component: ProductListComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
