@@ -1,1 +1,16 @@
-<p>product-detail works!</p>
+<div class="product-detail">
+    <div class="image">
+        <img src="{{product.url}}" alt="product image" ariaCurrentWhenActive="page">
+    </div>
+    <div class="info">
+        <div class="product-info">
+            <h1>{{product.name}}</h1>
+            <h3>${{product.price}}</h3>
+            <h3>{{product.description}}</h3>
+    
+        </div>
+        <div class="option">
+            <app-product-form (addProductRequest)="addProduct($event)"></app-product-form>
+        </div>
+    </div>
+</div>

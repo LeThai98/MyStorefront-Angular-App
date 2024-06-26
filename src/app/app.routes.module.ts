@@ -4,12 +4,14 @@ import { RouterModule,Routes } from '@angular/router';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { CartComponent } from './component/cart/cart.component';
+import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   {path: 'products', component: ProductListComponent},
   { path: 'cart', component: CartComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
   {path: '**', component: PageNotFoundComponent},
 ];
 

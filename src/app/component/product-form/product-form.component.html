@@ -1,0 +1,19 @@
+<div class="container">
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+        <div class="form-group">
+            <select id="amount" name="amount" class="form-control" required 
+                [(ngModel)]="selectedAmount"
+                (ngModelChange)="onAmountChange($event)">
+                <option *ngFor="let amount of amountProducts" [value]="amount">
+                    {{ amount }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+            Add to cart
+        </button>
+
+    </form>
+
+</div>

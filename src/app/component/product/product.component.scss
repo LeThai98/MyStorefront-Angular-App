@@ -1,0 +1,13 @@
+.product{
+    padding: 20px;
+    .product-image{
+        box-shadow: rgba(64, 64, 158, 0.2) 0px 7px 29px 0px;
+        padding: 15px;
+        border-radius: 6px;
+        border: 3px solid #07576d;
+        margin-bottom: 10px;
+    }
+    .product-info{
+        text-align: center;
+    }
+}

@@ -14,10 +14,12 @@ import { ProductDetailComponent } from './component/product-detail/product-detai
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routes.module';
+import { provideHttpClient } from '@angular/common/http';
+import { ProductFormComponent } from './component/product-form/product-form.component';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, HeaderComponent, CartComponent, ConfirmationComponent, OrderComponent, ProductComponent, ProductDetailComponent,
-    ProductListComponent
+    ProductListComponent,ProductFormComponent
    ],
   imports: [
     CommonModule,
@@ -28,7 +30,7 @@ import { AppRoutingModule } from './app.routes.module';
     AppRoutingModule
   ],
   exports: [],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

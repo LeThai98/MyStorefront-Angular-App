@@ -7,5 +7,5 @@ export interface Product {
 }
 
 export interface AddedProduct extends Product{
-    amount: string;
+    amount: number;
 }
