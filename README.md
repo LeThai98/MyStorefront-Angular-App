@@ -13,6 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 Author: Le Hong Thai
+
 Clone sourse: https://github.com/LeThai98/MyStorefront-Angular-App
 ## Development server
 
