@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -11,11 +12,11 @@ export class ProductFormComponent implements OnInit {
   amountProducts= [1,2,3,4,5,6,7,8,9,10];
   selectedAmount = 1;
 
-  constructor(){
+  constructor(private service: ProductService){
   }
 
   ngOnInit(): void {
-    
+   // this.updateCart();
   }
 
   onSubmit(form: any): void {
@@ -23,10 +24,17 @@ export class ProductFormComponent implements OnInit {
 
     //reset form
     this.selectedAmount = 1;
+
+    this.updateCart();
   }
 
   onAmountChange(amount: number){
     this.selectedAmount = amount;
     console.log('Form Data: ',this.selectedAmount);
+  }
+
+  updateCart(){
+    this.service.updateCart();
+
   }
 }

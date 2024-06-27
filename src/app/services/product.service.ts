@@ -15,6 +15,24 @@ export class ProductService {
     return this.httpClient.get<any>(this.api);
   }
 
+  getTotalProduct(): number{
+    let cartProduct : AddedProduct[]= this.getProductFromCard();
+    let sum = 0;
+    cartProduct.forEach((item) => {
+      sum += Number(item.amount);
+    });
+
+    return sum;
+  }
+
+  updateCart(){
+    const totalProduct = this.getTotalProduct();
+
+    const element = document.getElementById('productAmount') as HTMLElement;
+    element.innerHTML = totalProduct.toString();
+
+  }
+
   getProductFromCard(): AddedProduct[]{
     const  productList = this.storage.getItem('cart');
     return productList ? JSON.parse(productList) : [];

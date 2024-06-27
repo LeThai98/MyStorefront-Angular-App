@@ -1,1 +1,72 @@
-<p>order works!</p>
+<div class="order">
+    <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="form">
+        <h2>Please fill your information.</h2>
+        <br>
+        
+        <!-- User Name -->
+        <div class="info">
+            <label  for="name">User Name </label>
+
+            <input id="userName" class="form-control"  type="text" formControlName="userName" placeholder="Enter User Name">
+
+            <div *ngIf="userName?.invalid && (userName?.touched || userName?.dirty)" [ngClass]="{'alert alert-danger mt-1': userName?.invalid}">
+                <div *ngIf="userName?.errors?.['required']">
+                    User Name is required.
+                </div>
+
+                <div *ngIf="userName?.errors?.['minlength']">
+                    Name needs at least 3 characters.
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Address  -->
+        <div class="info">
+            <label  for="address">Address </label>
+            <br />
+            <input class="form-control" formControlName="address" type="text" placeholder="Enter Address"/>
+
+            <div *ngIf="address?.invalid && ( address?.touched || address?.dirty)" [ngClass]="{'alert alert-danger mt-1': userName?.invalid}">
+                <div *ngIf="address?.errors?.['required']">Address is required.</div>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="info">
+            <label  for="email">Email </label>
+            <br />
+            <input class="form-control" formControlName="email" type="email" placeholder="Enter Email" />
+
+            <div *ngIf="email?.invalid && ( email?.touched || email?.dirty)" [ngClass]="{'alert alert-danger mt-1': email?.invalid}">
+                <div *ngIf="email?.errors?.['required']">Email is required.</div>
+                <div *ngIf="email?.errors?.['email']">Email must be a valid email address.</div>
+            </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="info">
+            <label  for="phone">Phone Number </label>
+            <br />
+            <input class="form-control" formControlName="phone" type="number" placeholder="Enter Phone Number" />
+
+            <div *ngIf="phone?.invalid && (phone?.touched ||phone?.dirty)" [ngClass]="{'alert alert-danger mt-1': phone?.invalid}">
+                <div *ngIf="phone?.errors?.['required']">Phone Number is required.</div>
+            </div>
+        </div>
+
+        <!-- Credit Card Number -->
+        <div class="info">
+            <label  for="credit">Credit Card Number </label><br />
+            <input class="form-control" type="number" formControlName="creditCard" maxlength="16" placeholder="(16-digit number)" />
+
+            <div *ngIf="creditCard?.invalid && (creditCard?.touched || creditCard?.dirty)" [ngClass]="{'alert alert-danger mt-1': creditCard?.invalid}">
+                <div *ngIf="creditCard?.errors?.['required']">
+                    Credit Card is required or please enter number bellow.
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </form>
+</div>

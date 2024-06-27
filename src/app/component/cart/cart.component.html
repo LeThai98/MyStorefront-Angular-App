@@ -1,1 +1,43 @@
-<p>cart works!</p>
+<div class="cart">
+    <div class="product-list">
+        <div class="price">
+            <h3>Total Price: ${{totalPrice}}</h3>
+            <div class="buy" *ngIf="totalPrice>0">
+                <a class="nav-link active" href="order">
+                    <button type="button" class="btn btn-primary">BUY</button>
+                </a>
+            </div>
+        </div>
+        <div class="cart-list">
+            <div *ngFor="let product of cartProduct" class="cart-item">
+                <div class="cart-image">
+                    <img src="{{product.url}}" alt="product image">
+                </div>
+
+                <div class="cart-info">
+                    <div class="form-group">
+                        <select id="amount" name="amount" class="form-control" required [(ngModel)]="product.amount"
+                            (ngModelChange)="onAmountChange($event, product)">
+                            <option *ngFor="let amount of amountProducts" [value]="amount">
+                                {{ amount }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="remove">
+                        <button type="button" class="btn btn-secondary"
+                            (click)="removeProductFromCart(product.id)">Remove product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty" *ngIf="!totalPrice">
+            Cart is empty, <span class="badge bg-secondary">
+                <a class="nav-link active" href="#">Back to Product List</a>
+            </span>
+
+        </div>
+    </div>
+
+</div>

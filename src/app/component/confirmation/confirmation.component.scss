@@ -1,0 +1,25 @@
+.confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+
+    .items {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        i {
+            color: #087159;
+        }
+
+        .billTitle {
+            color: #087a60;
+            font-size: 40px;
+        }
+
+        .item {
+            margin-bottom: 40px;
+        }
+    }
+}
